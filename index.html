@@ -203,6 +203,7 @@
 </style>
 <style>
   /* public copy: report view only, behind a password card */
+  [hidden] { display: none !important; }
   html[data-public] #view-entry, html[data-public] #btn-sync, html[data-public] #btn-new-report-r,
   html[data-public] .toolbar .seg-tabs { display: none !important; }
   html[data-locked] .wrap { visibility: hidden; }
@@ -278,7 +279,7 @@
       liveNote: '진행 중인 보고라 아직 바뀔 수 있습니다 · 이 페이지는 ' + fmt(D.at) + ' 기준 사본입니다',
     };
     if (remember) { try { sessionStorage.setItem('wop-pw', pw); } catch (e) {} }
-    root.removeAttribute('data-locked'); document.getElementById('lock').hidden = true;
+    root.removeAttribute('data-locked'); document.getElementById('lock').remove();
     resolveData(D);
   }
   const form = document.getElementById('lock-form'), msg = document.getElementById('lock-msg'), btn = document.getElementById('lock-btn');
